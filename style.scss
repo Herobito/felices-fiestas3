@@ -1,0 +1,242 @@
+// Generic
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+// Utilities
+.hidden {
+    display: none !important;
+}
+
+.scale-down {
+    object-fit: scale-down !important;
+}
+
+
+// Carousel
+.swiper {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    height: 100svh;
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+
+        .background-parallax {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+        }
+    }
+}
+
+
+// Backgrounds
+.bg-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    color: rgb(155, 243, 255);
+    text-shadow: 2px 2px #305b61;
+
+    &.bg-white {
+        background-color: #FFFFFFad;
+        color: #034C6C;
+        text-shadow: 2px 2px #acf5ff;
+    }
+
+    &.bg-lightblue {
+        background: linear-gradient(rgba(107, 149, 167, .6), rgba(15, 64, 85, .6));
+    }
+
+    &.bg-blue {
+        background-color: #034d6cad;
+    }
+}
+
+// Texts
+.text {
+    & > * {
+        margin-bottom: .5rem;
+        padding-inline-start: 1.6rem;
+        padding-inline-end: 1.6rem;
+        text-align: center;
+        line-height: 1;
+    }
+    h2 {
+        font-size: calc(2.4rem + 1vw);
+    }
+    h3 {
+        font-size: calc(1.8rem + 1vw);
+    }
+    h1 {
+        font-size: calc(3rem + 1vw);
+    }
+    h4 {
+        font-size: calc(1.5rem + 1vw);
+    }
+    .typo-1 * {
+        font-family: "Irish Grover", system-ui;
+    }
+    .typo-2 * {
+        font-family: "Festive", cursive;
+    }
+    .typo-3 * {
+        font-family: "Luckiest Guy", cursive;
+    }
+    .typo-4 * {
+        font-family: "Sour Gummy", serif;
+    }
+    .text-red {
+        color: rgb(255,80,80);
+        text-shadow: 2px 2px #440000;
+    }
+    .text-blue {
+        color: rgb(5, 97, 136);
+        text-shadow: 2px 2px rgb(155, 243, 255);
+    }
+    .text-lightblue {
+        color: rgb(114, 239, 255);
+        text-shadow: 2px 2px rgb(5, 97, 136);
+    }
+    .year {
+        color: rgb(255,80,80);
+        text-shadow: 2px 2px #440000;
+        font-size: calc(5rem + 1vw);
+        line-height: .5;
+    }
+}
+
+// Loading
+#loading {
+    transition: .5s;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    .loader {
+        color: #034C6C;
+        width: 4px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        box-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;
+        transform: translateX(-38px);
+    }
+}
+
+
+// User interface
+.ui {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+
+    button {
+        all: unset;
+        width: 32px;
+        padding: 8px;
+        height: auto;
+        cursor: pointer;
+    }
+}
+
+
+// Animations
+@keyframes l21 {
+    50% {
+        box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px
+    }
+
+    100% {
+        box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px
+    }
+}
+
+@keyframes animationButtonScroll {
+    from {
+        transform: translateY(-5px);
+    }
+
+    to {
+        transform: translateY(5px);
+    }
+}
+
+@keyframes parpadeo {
+    from {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.8) rotate(-15deg);
+    }
+}
+
+@keyframes latido {
+    0% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: scale(1) rotate(0);
+    }
+
+    to {
+        transform: scale(1) rotate(-360deg);
+    }
+}
+
+.stars {
+    animation: parpadeo 1.2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.latido {
+    animation: latido 1.2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.rotate {
+    animation: rotate 16s infinite linear;
+}
+
+.animation-button-scroll img {
+    animation: animationButtonScroll 1s infinite alternate;
+}
+
+.loader {
+    animation: l21 .5s infinite alternate linear;
+}
